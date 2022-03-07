@@ -1,1 +1,2 @@
-# AmyR-ecommerce-back_end
+# E-commerce Back End Project
+
