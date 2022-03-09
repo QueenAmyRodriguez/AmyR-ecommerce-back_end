@@ -11,17 +11,13 @@ router.get('/', (req, res) => {
       'id',
       'product_name',
       'price',
-      'stock'
+      'stock',
     ],
     include: [
       {
         model: Category,
         attributes: ['id', 'category_name']
       }
-      // {
-      //   model: Tag,
-      //   attributes: ['id', 'tag_name']
-      // }
     ]
   })
     .then(dbProductdata => res.json(dbProductdata))
@@ -35,7 +31,7 @@ router.get('/', (req, res) => {
 // get one product
 router.get('/:id', (req, res) => {
   // find a single product by its `id`
-  Product.findAll({
+  Product.findOne({
     where: {
       id: req.params.id
     },
@@ -43,17 +39,13 @@ router.get('/:id', (req, res) => {
       'id',
       'product_name',
       'price',
-      'stock'
+      'stock',
     ],
     include: [
       {
         model: Category,
         attributes: ['id', 'category_name']
       }
-      // {
-      //   model: Tag,
-      //   attributes: ['id', 'tag_name']
-      // }
     ]
   })
     .then(dbProductdata => {
