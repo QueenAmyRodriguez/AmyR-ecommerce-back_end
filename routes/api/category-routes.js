@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { json } = require('express/lib/response');
 const { Category, Product } = require('../../models');
 
 // The `/api/categories` endpoint
@@ -10,6 +9,12 @@ router.get('/', (req, res) => {
     attributes: [
       'id',
       'category_name'
+    ],
+    include: [
+      {
+        model: Product,
+        attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
+      }
     ]
   })
     .then(dbCategoryData => res.json(dbCategoryData))
@@ -29,6 +34,12 @@ router.get('/:id', (req, res) => {
     attributes: [
       'id',
       'category_name'
+    ],
+    include: [
+      {
+        model: Product,
+        attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
+      }
     ]
   })
     .then(dbCategoryData => {
@@ -89,17 +100,17 @@ router.delete('/:id', (req, res) => {
       id: req.params.id
     }
   })
-  .then(dbCategoryData => {
-    if (!dbCategoryData) {
-      res.status(404).json({ message: 'No category found with this id' });
-      return;
-    }
-    res.json(dbCategoryData);
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
+    .then(dbCategoryData => {
+      if (!dbCategoryData) {
+        res.status(404).json({ message: 'No category found with this id' });
+        return;
+      }
+      res.json(dbCategoryData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 module.exports = router;
