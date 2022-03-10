@@ -9,7 +9,7 @@
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
-- [Video/Screenshot](#video/screenshot)
+- [Video/Screenshot](#videoscreenshot)
 - [License](#license)
 - [Contributing](#contributing)
 - [Questions](#questions)
@@ -26,7 +26,7 @@ It can be used to establish a robust back end to any e-commerce website.
 -------
 ![Insomnia GET Categories Route](/assets/images/GET_Categories.png)
 
-[Walkthrough Video](#https://youtu.be/0Nxfqwpn1_k)
+[Video](https://youtu.be/0Nxfqwpn1_k)
 
 ## License
 -------
